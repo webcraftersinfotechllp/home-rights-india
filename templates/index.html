@@ -1,0 +1,332 @@
+{% extends 'base.html' %} {% block title %}Home | Homerights India Social
+Foundation{% endblock %} {% block meta_description %}Homerights India Social
+Foundation works with communities to create meaningful social change through
+rights awareness, education, livelihood support, healthcare, and social
+empowerment.{% endblock %} {% block og_title %}Homerights India Social
+Foundation{% endblock %} {% block og_description %}Building dignity, opportunity
+and hope for every community.{% endblock %} {% block canonical_url
+%}https://example.com/{% endblock %} {% block content %}
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <p class="section-kicker" style="color: #e8b85a">
+      Social Impact • Community Action
+    </p>
+    <h1>Building Dignity, Opportunity &amp; Hope for Every Community</h1>
+    <p>
+      Homerights India Social Foundation works to create lasting change across
+      agriculture, child welfare, civic development, education, and animal
+      protection.
+    </p>
+    <div class="hero-actions">
+      <a
+        href="{{ url_for('main.donate') }}"
+        class="btn btn-primary donation-link"
+      >
+        <svg
+          class="donation-heart"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          ></path>
+        </svg>
+        Donate Now
+      </a>
+      <a href="{{ url_for('main.programs_page') }}" class="btn btn-secondary"
+        >Our Programs</a
+      >
+    </div>
+  </div>
+</section>
+
+<section class="trust-strip">
+  <div class="container trust-grid">
+    <div class="trust-card">
+      <div class="program-icon">🧒</div>
+      <h4>Children</h4>
+    </div>
+    <div class="trust-card">
+      <div class="program-icon">🐕</div>
+      <h4>Animal Welfare</h4>
+    </div>
+    <div class="trust-card">
+      <div class="program-icon">🚜</div>
+      <h4>Agriculture</h4>
+    </div>
+    <div class="trust-card">
+      <div class="program-icon">🎓</div>
+      <h4>Education & Literacy</h4>
+    </div>
+  </div>
+</section>
+
+<section class="section about-section">
+  <div class="container about-grid">
+    <div class="about-copy">
+      <p class="section-kicker">About Us</p>
+      <h2 class="section-title">Creating Change. Empowering Communities.</h2>
+      <p>
+        HOMERIGHTS INDIA SOCIAL FOUNDATION is dedicated to driving grassroots
+        change across Agriculture, Child Welfare, Civic Issues, Education &
+        Literacy, and Animal Welfare. We work directly with local communities to
+        implement impactful programs and events that create long-term social
+        growth.
+      </p>
+      <p>
+        Mr. Milind Vasantrao Gaikwad And Mr. Sanjay Uttamrao Alhat Lead by
+        experienced visionaries, Homerights India Social Foundation is committed
+        to fostering equitable community growth, protecting fundamental rights,
+        and driving sustainable grassroots development across all sectors.
+      </p>
+      <a href="{{ url_for('main.donate') }}" class="btn btn-primary"
+        >Support Our Mission</a
+      >
+    </div>
+    <div class="directors-container">
+      <!-- Director 1 -->
+      <div class="director-box">
+        <div class="director-img-wrapper">
+          <img
+            src="{{ url_for('static', filename='images/about/about-1.svg') }}"
+            alt="Mr. Milind Vasantrao Gaikwad"
+          />
+        </div>
+        <br />
+        <div class="director-content text-center">
+          <h5
+            style="
+              font-family: &quot;Poppins&quot;, sans-serif;
+              font-weight: 400;
+              font-size: 0.95rem;
+              color: #212529;
+            "
+          >
+            Mr. Milind Vasantrao Gaikwad
+          </h5>
+          <p class="designation mb-0">Director</p>
+        </div>
+      </div>
+
+      <!-- Director 2 -->
+      <div class="director-box">
+        <div class="director-img-wrapper">
+          <img
+            src="{{ url_for('static', filename='images/about/about-1.svg') }}"
+            alt="Mr. Sanjay Uttamrao Alhat"
+          />
+        </div>
+        <br />
+        <div class="director-content text-center">
+          <h5
+            style="
+              font-family: &quot;Poppins&quot;, sans-serif;
+              font-weight: 400;
+              font-size: 0.95rem;
+              color: #212529;
+            "
+          >
+            Mr. Sanjay Uttamrao Alhat
+          </h5>
+          <p class="designation mb-0">Director</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 42px">
+      <p class="section-kicker">Our Programs</p>
+      <h2 class="section-title">
+        Focused on the issues that shape everyday life
+      </h2>
+    </div>
+
+    <div class="program-grid">
+      {% for program in programs %}
+      <article class="program-card">
+        <div class="program-icon">{{ program.icon }}</div>
+        <h3>{{ program.title }}</h3>
+        <p>{{ program.description }}</p>
+        <a href="{{ url_for('main.programs_page') }}" class="card-link"
+          >Learn More</a
+        >
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: #fff">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 42px">
+      <p class="section-kicker">Our Approach</p>
+      <h2 class="section-title">From Need to Action</h2>
+    </div>
+
+    <div class="approach-grid">
+      <div class="info-card">
+        <div class="step-number">01</div>
+        <h3>Identify Needs</h3>
+        <p>
+          We assess ground realities across agriculture, child welfare, civic
+          issues, education, and animal protection to understand community
+          challenges.
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="step-number">02</div>
+        <h3>Plan & Strategize</h3>
+        <p>
+          We design practical programs and initiatives tailored to local
+          community needs with sustainable impact in mind.
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="step-number">03</div>
+        <h3>On-Ground Action</h3>
+        <p>
+          Our dedicated teams and partners execute grassroots activities,
+          awareness drives, and direct support programs.
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="step-number">04</div>
+        <h3>Measure Impact</h3>
+        <p>
+          We monitor progress, evaluate real-world outcomes, and continually
+          refine our programs for long-term social benefit.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section impact-section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 42px">
+      <p class="section-kicker">Impact</p>
+      <h2 class="section-title">Progress built on partnership and trust</h2>
+    </div>
+
+    <div class="impact-grid">
+      {% for stat in impact_stats %}
+      <div class="impact-card">
+        <div
+          class="counter"
+          data-target="{{ stat.value }}"
+          data-suffix="{{ stat.suffix }}"
+        >
+          0{{ stat.suffix }}
+        </div>
+        <p>{{ stat.label }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 42px">
+      <p class="section-kicker">Featured Projects</p>
+      <h2 class="section-title">Grounded initiatives for visible change</h2>
+    </div>
+
+    <div class="project-grid">
+      {% for project in projects %}
+      <article class="project-card">
+        <img
+          src="{{ url_for('static', filename=project.image) }}"
+          alt="{{ project.title }}"
+        />
+        <div class="project-body">
+          <span class="meta">{{ project.category }}</span>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<section
+  class="section get-involved-section"
+  style="background-color: #ffffff !important"
+>
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 42px">
+      <p class="section-kicker">Get Involved</p>
+      <h2 class="section-title">Be a Part of the Change</h2>
+    </div>
+
+    <div class="approach-grid">
+      {% for card in get_involved %}
+      <div
+        class="info-card"
+        style="
+          background-color: #f8f6f0;
+          border: 1px solid rgba(23, 52, 46, 0.12);
+        "
+      >
+        <div class="step-number">{{ loop.index }}</div>
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.description }}</p>
+        <a href="{{ card.link }}" class="card-link">Explore</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section
+  class="section cta-section"
+  style="background-color: var(--light) !important"
+>
+  <div class="container">
+    <div
+      class="cta-box"
+      style="
+        background: transparent !important;
+        box-shadow: none !important;
+        border: none !important;
+      "
+    >
+      <p class="section-kicker" style="color: var(--secondary) !important">
+        SUPPORT THE MISSION
+      </p>
+      <h2 style="color: var(--primary-dark) !important">
+        Together, We Can Create Lasting Change.
+      </h2>
+      <p style="color: var(--muted) !important">
+        Your support can help communities access opportunities, dignity,
+        awareness and essential support.
+      </p>
+      <a
+        href="{{ url_for('main.donate') }}"
+        class="btn btn-primary donation-link"
+        style="
+          background-color: var(--primary) !important;
+          color: var(--white) !important;
+        "
+      >
+        <svg
+          class="donation-heart"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          ></path>
+        </svg>
+        Donate Now
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

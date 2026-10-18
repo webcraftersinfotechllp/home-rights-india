@@ -1,0 +1,276 @@
+{% extends 'base.html' %} {% block title %}Our Programs | Homerights India
+Social Foundation{% endblock %} {% block meta_description %}Explore our
+programmes in education, health, livelihoods, women and youth empowerment,
+community development, and rights awareness.{% endblock %} {% block og_title
+%}Programs of Homerights India Social Foundation{% endblock %} {% block
+canonical_url %}https://example.com/programs{% endblock %} {% block content %}
+<section class="page-hero">
+  <div class="container text-center">
+    <p class="section-kicker">Our Programs</p>
+    <h1>People-focused programmes for lasting community growth</h1>
+    <p>
+      Our initiatives are structured across Agriculture, Children Welfare, Civic
+      Issues, Education & Literacy, and Animal Welfare to deliver measurable
+      impact and opportunity.
+    </p>
+  </div>
+</section>
+
+<section class="page-wrapper">
+  <div class="container">
+    <div class="program-grid">
+      {% for program in programs %}
+      <article class="program-card">
+        <div class="program-icon">{{ program.icon }}</div>
+        <h3>{{ program.title }}</h3>
+        <p>{{ program.description }}</p>
+
+        <div class="content-block">
+          <h4>Objectives</h4>
+          <ul class="list-check">
+            {% for item in program.objectives %}
+            <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="content-block">
+          <h4>Who We Serve</h4>
+          <p>{{ program.audience }}</p>
+        </div>
+
+        <div class="content-block">
+          <h4>Expected Impact</h4>
+          <p>{{ program.impact }}</p>
+        </div>
+
+        <a href="{{ url_for('main.contact') }}" class="btn btn-primary"
+          >Get in Touch</a
+        >
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- Secondary Sectors Section -->
+  <div
+    style="
+      max-width: 1200px;
+      margin: 40px auto 60px auto;
+      padding: 45px 30px;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      text-align: center;
+    "
+  >
+    <span
+      style="
+        color: #d97706;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        display: block;
+        margin-bottom: 8px;
+      "
+    >
+      EXTENDED COMMUNITY INITIATIVES
+    </span>
+
+    <h3
+      style="
+        color: #1b4332;
+        font-size: 30px;
+        font-weight: 700;
+        font-family: serif;
+        margin-bottom: 12px;
+      "
+    >
+      Other Secondary Focus Areas
+    </h3>
+
+    <p
+      style="
+        color: #666666;
+        font-size: 15px;
+        max-width: 750px;
+        margin: 0 auto 32px auto;
+        line-height: 1.6;
+      "
+    >
+      In addition to our primary sectors, HOMERIGHTS INDIA SOCIAL FOUNDATION
+      actively supports key community issues through targeted grassroots drives.
+    </p>
+
+    <!-- Tags Container -->
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        max-width: 1000px;
+        margin: 0 auto 35px auto;
+      "
+    >
+      <div
+        style="
+          background: #f4f6f4;
+          color: #1b4332;
+          border: 1px solid #e0e7e1;
+          padding: 10px 22px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+      >
+        <span>🙋‍♀️</span> Women Empowerment
+      </div>
+
+      <div
+        style="
+          background: #f4f6f4;
+          color: #1b4332;
+          border: 1px solid #e0e7e1;
+          padding: 10px 22px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+      >
+        <span>🩺</span> Health & Sanitation
+      </div>
+
+      <div
+        style="
+          background: #f4f6f4;
+          color: #1b4332;
+          border: 1px solid #e0e7e1;
+          padding: 10px 22px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+      >
+        <span>🌱</span> Environment Protection
+      </div>
+
+      <div
+        style="
+          background: #f4f6f4;
+          color: #1b4332;
+          border: 1px solid #e0e7e1;
+          padding: 10px 22px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+      >
+        <span>🛠️</span> Skill Development
+      </div>
+
+      <div
+        style="
+          background: #f4f6f4;
+          color: #1b4332;
+          border: 1px solid #e0e7e1;
+          padding: 10px 22px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+      >
+        <span>📦</span> Disaster Relief
+      </div>
+
+      <div
+        style="
+          background: #f4f6f4;
+          color: #1b4332;
+          border: 1px solid #e0e7e1;
+          padding: 10px 22px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+      >
+        <span>⚖️</span> Rights & Awareness
+      </div>
+
+      <div
+        style="
+          background: #f4f6f4;
+          color: #1b4332;
+          border: 1px solid #e0e7e1;
+          padding: 10px 22px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+      >
+        <span>👴</span> Elderly Care & Support
+      </div>
+
+      <div
+        style="
+          background: #f4f6f4;
+          color: #1b4332;
+          border: 1px solid #e0e7e1;
+          padding: 10px 22px;
+          border-radius: 50px;
+          font-size: 14px;
+          font-weight: 600;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        "
+      >
+        <span>💼</span> Vocational Training
+      </div>
+    </div>
+
+    <!-- Center Redirect Button -->
+    <div style="margin-top: 20px">
+      <a
+        href="/donate"
+        style="
+          display: inline-block;
+          background: #1b4332;
+          color: #ffffff;
+          padding: 14px 36px;
+          border-radius: 50px;
+          font-size: 15px;
+          font-weight: 700;
+          text-decoration: none;
+          box-shadow: 0 4px 15px rgba(27, 67, 50, 0.2);
+          transition: all 0.3s ease;
+        "
+      >
+        ♥ &nbsp;SUPPORT OUR INITIATIVES
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

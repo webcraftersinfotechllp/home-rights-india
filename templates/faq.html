@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block title %}FAQ | Homerights India Social
+Foundation{% endblock %} {% block meta_description %}Frequently asked questions
+about our foundation, donation process, volunteer opportunities, and
+partnerships.{% endblock %} {% block og_title %}Frequently Asked Questions{%
+endblock %} {% block canonical_url %}https://example.com/faq{% endblock %} {%
+block content %}
+<section class="page-hero">
+  <div class="container text-center">
+    <p class="section-kicker">FAQ</p>
+    <h1>Answers to common questions</h1>
+    <p>
+      We believe clarity and trust are essential, especially when communities
+      and supporters connect with a cause.
+    </p>
+  </div>
+</section>
+
+<section class="page-wrapper">
+  <div class="container">
+    <div
+      class="faq-layout"
+      style="grid-template-columns: 1fr; max-width: 960px; margin: 0 auto"
+    >
+      {% for faq in faqs %}
+      <div class="faq-item {% if loop.first %}active{% endif %}">
+        <button
+          class="faq-question"
+          type="button"
+          aria-expanded="{{ 'true' if loop.first else 'false' }}"
+        >
+          <span>{{ faq.question }}</span>
+          <span>+</span>
+        </button>
+        <div class="faq-answer">
+          <p>{{ faq.answer }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

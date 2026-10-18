@@ -1,0 +1,132 @@
+{% extends 'base.html' %} {% block title %}About Us | Homerights India Social
+Foundation{% endblock %} {% block meta_description %}Learn about Homerights
+India Social Foundation, our mission, values, and community-led approach to
+social change across India.{% endblock %} {% block og_title %}About Homerights
+India Social Foundation{% endblock %} {% block og_description %}A mission-driven
+NGO working for dignity, inclusion, education, livelihoods, and community
+empowerment.{% endblock %} {% block canonical_url %}https://example.com/about{%
+endblock %} {% block content %}
+<section class="page-hero">
+  <div class="container text-center">
+    <p class="section-kicker">About Us</p>
+    <h1>Building stronger communities through action and dignity</h1>
+    <p>
+      HOMERIGHTS INDIA SOCIAL FOUNDATION works directly with communities to
+      drive impactful change in Agriculture, Children Welfare, Civic Issues,
+      Education & Literacy, and Animal Welfare.
+    </p>
+  </div>
+</section>
+
+<section class="page-wrapper">
+  <div class="container content-grid">
+    <div class="content-card">
+      <p class="section-kicker">Who We Are</p>
+      <h2>About Homerights India Social Foundation</h2>
+      <p>
+        HOMERIGHTS INDIA SOCIAL FOUNDATION is a community-centred organization
+        dedicated to empowering marginalized families and uplifting lives.
+        Through rights awareness, sustainable development, and active grassroots
+        engagement, we create lasting social pathways across education, rural
+        agriculture, child rights, civic growth, and animal protection.
+      </p>
+      <p>
+        We believe social progress begins when people are heard, equipped, and
+        given equitable opportunities to thrive. That is why every initiative we
+        design is rooted in trust, meaningful participation, and practical
+        community engagement.
+      </p>
+    </div>
+
+    <div class="content-card">
+      <p class="section-kicker">Our Vision</p>
+      <h2>A just, inclusive, and empowered society</h2>
+      <p>
+        We envision communities where every individual has the opportunity to
+        live with dignity, access essential support in education, farming, civic
+        rights, and animal welfare, and participate in collective progress
+        without barriers.
+      </p>
+    </div>
+
+    <div class="content-card">
+      <p class="section-kicker">Our Mission</p>
+      <h2>To create lasting community impact</h2>
+      <p>
+        Our mission is to enable access to education & literacy, sustainable
+        agricultural support, child welfare, civic rights awareness, and animal
+        protection for marginalized communities through collaborative grassroots
+        action.
+      </p>
+    </div>
+
+    <div class="content-card">
+      <p class="section-kicker">Our Values</p>
+      <h2>What guides us</h2>
+      <ul class="list-check">
+        <li>Integrity</li>
+        <li>community-first action</li>
+        <li>inclusivity</li>
+        <li>transparency</li>
+        <li>deep empathy drive every initiative we undertake</li>
+      </ul>
+    </div>
+
+    <div class="content-card">
+      <p class="section-kicker">Our Approach</p>
+      <h2>Grounded in local realities</h2>
+      <p>
+        We combine grassroots listening with practical, field-tested frameworks
+        to design programmes across agriculture, education, civic action, child
+        development, and animal welfare. We work collaboratively with families,
+        farmers, schools, youth groups, and local community stakeholders.
+      </p>
+    </div>
+
+    <div class="content-card">
+      <p class="section-kicker">Why We Work</p>
+      <h2>Because communities deserve access, opportunity, and voice</h2>
+      <p>
+        Many families, farmers, and neighbourhoods face exclusion from basic
+        opportunities, quality education, rights awareness, and welfare support.
+        We work to bridge those gaps with compassion, practical grassroots
+        action, and sustained community engagement.
+      </p>
+    </div>
+
+    <div class="content-card" style="grid-column: 1 / -1">
+      <p class="section-kicker">Leadership</p>
+      <h2>Driven by dedicated social visionaries</h2>
+      <p>
+        HOMERIGHTS INDIA SOCIAL FOUNDATION is led by passionate social workers,
+        community organizers, and field advisors committed to driving grassroots
+        development and institutional integrity across all focus sectors.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-section">
+  <div class="container">
+    <div class="cta-box">
+      <p class="section-kicker">Join Our Work</p>
+      <h2>Every act of support strengthens a community.</h2>
+      <a
+        href="{{ url_for('main.donate') }}"
+        class="btn btn-primary donation-link"
+        ><svg
+          class="donation-heart"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          ></path>
+        </svg>
+        Donate Now
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

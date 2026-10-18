@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block title %}Server Error | Homerights India
+Social Foundation{% endblock %} {% block meta_description %}Something went wrong
+while processing your request. Please try again later.{% endblock %} {% block
+content %}
+<section class="page-hero simple-hero">
+  <div class="container text-center">
+    <p class="section-kicker">500 Error</p>
+    <h1>Something went wrong</h1>
+    <p>
+      We are working to fix this issue. Please try again in a moment or return
+      to the homepage.
+    </p>
+    <a href="{{ url_for('main.home') }}" class="btn btn-primary">Return Home</a>
+  </div>
+</section>
+{% endblock %}
