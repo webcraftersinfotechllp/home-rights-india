@@ -540,10 +540,10 @@ header.site-header nav ul.nav-list {
   margin-bottom: 20px;
 }
 
-/* --- Directors Cards Styling --- */
+/* --- Directors Cards Styling Fixed --- */
 .directors-container {
   display: flex;
-  gap: 15px;
+  gap: 20px;
   width: 100%;
   margin-top: 20px;
 }
@@ -552,7 +552,7 @@ header.site-header nav ul.nav-list {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Sagle content center la alignment sathi */
+  align-items: center;
   background: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 12px;
@@ -562,35 +562,41 @@ header.site-header nav ul.nav-list {
 
 .director-img-wrapper {
   width: 100%;
-  height: 140px;
+  height: 200px; /* Height vaadhvli ahe jevhar photo neat basel */
   overflow: hidden;
   border-radius: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 8px; /* Gap kami karnyasathi margin kami keli ahe */
+  background: #f8fafc; /* Jar photo la transparent/white background asel tr to neat disel */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .director-img-wrapper img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain; /* Photo cut honar nahi, poora disel */
+  object-position: center;
 }
 
 .director-content {
   width: 100%;
-  text-align: center; /* Naave ani designation center madhye thevnyasathi */
+  text-align: center;
+  padding-top: 5px;
 }
 
 .director-content h5 {
   font-size: 0.95rem;
   font-weight: bold;
   color: #212529;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .director-content .designation {
   font-size: 0.8rem;
   color: #1b4332;
   font-weight: 600;
+  margin: 0;
 }
 /* ==========================================================================
    8. PROGRAMS & APPROACH SECTIONS
