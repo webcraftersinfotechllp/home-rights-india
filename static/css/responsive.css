@@ -19,14 +19,43 @@
 
 /* Tablets & Mobile Navigation Trigger (Max-width: 992px) */
 @media (max-width: 992px) {
+  .navbar .container {
+    height: auto;
+    min-height: 72px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .navbar-inner {
+    position: relative;
+    min-height: 72px;
+    justify-content: flex-start;
+    padding: 10px 0;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 0 1 auto;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .brand {
+    justify-content: flex-start;
+    text-align: left;
+  }
+
   .nav-toggle {
-    display: block;
-    flex-shrink: 0;
+    display: flex;
+    flex: 0 0 44px;
+    margin-left: auto;
   }
 
   .nav-menu {
     position: absolute;
-    top: calc(100% + 2px);
+    top: 100%;
     left: 0;
     right: 0;
     display: none;
@@ -62,17 +91,6 @@
 
   .nav-link {
     font-size: 14px;
-  }
-
-  .navbar-inner {
-    position: relative;
-    min-height: 72px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-
-  .brand {
-    width: auto;
   }
 
   .about-grid,
