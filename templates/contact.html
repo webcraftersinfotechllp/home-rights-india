@@ -107,9 +107,7 @@ endblock %} {% block content %}
           action="{{ url_for('main.contact') }}"
           novalidate
         >
-          {% if csrf_token %}
           <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
-          {% endif %}
 
           <div class="form-group" style="margin-bottom: 15px">
             <label for="name"

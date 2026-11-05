@@ -1,8 +1,10 @@
 import smtplib
 import threading
+from html import escape
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+from unicodedata import category
 
 from fpdf import FPDF
 from flask import (
@@ -15,6 +17,8 @@ from flask import (
     request,
     url_for,
 )
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 import razorpay
 
 from models import ContactMessage, Donation, db
@@ -32,6 +36,7 @@ SENDER_EMAIL = os.getenv("SENDER_EMAIL")
 SENDER_PASSWORD = os.getenv("SENDER_PASSWORD")
 
 main_bp = Blueprint("main", __name__)
+limiter = Limiter(key_func=get_remote_address)
 
 
 def generate_receipt_pdf(donor_name, amount, pan_number, payment_id):
@@ -183,6 +188,16 @@ Message:
   except Exception as e:
     print("SMTP Contact Notification Error:", e)
     return False
+
+
+def sanitize_contact_email_input(value, preserve_newlines=False):
+  sanitized = "".join(
+      character
+      for character in value
+      if category(character) != "Cc"
+      or (preserve_newlines and character in "\n\t")
+  )
+  return escape(sanitized, quote=True)
 
 
 # ==========================================
@@ -652,6 +667,7 @@ def gallery():
 
 
 @main_bp.route("/contact", methods=["GET", "POST"])
+@limiter.limit("3 per minute", methods=["POST"])
 def contact():
   if request.method == "POST":
     name = (request.form.get("name") or "").strip()
@@ -695,9 +711,15 @@ def contact():
       db.session.commit()
 
       try:
+        smtp_name = sanitize_contact_email_input(name)
+        smtp_email = sanitize_contact_email_input(email)
+        smtp_subject = sanitize_contact_email_input(subject)
+        smtp_message = sanitize_contact_email_input(
+            message, preserve_newlines=True
+        )
         threading.Thread(
             target=send_contact_notification,
-            args=(name, email, mobile, subject, message),
+            args=(smtp_name, smtp_email, mobile, smtp_subject, smtp_message),
             daemon=True,
         ).start()
       except Exception:

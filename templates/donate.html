@@ -89,6 +89,7 @@
         {% endif %}
 
         <form method="post" action="{{ url_for('main.donate') }}" id="donation-form" novalidate>
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" />
           
           <!-- 1. CHOOSE AMOUNT -->
           <div class="form-section" style="margin-bottom: 18px;">
@@ -319,7 +320,9 @@ document.addEventListener('DOMContentLoaded', function() {
       fetch("{{ url_for('main.payment_verify') }}", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          "X-CSRFToken":
+            document.querySelector('#donation-form [name="csrf_token"]').value
         },
         body: JSON.stringify({
           razorpay_order_id: response.razorpay_order_id,

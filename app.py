@@ -1,18 +1,25 @@
+import os
 from datetime import datetime
 from flask import Flask, app, render_template
+from flask_wtf.csrf import CSRFProtect
 
 from config import Config
 from models import db  
-from routes.main import main_bp
+from routes.main import limiter, main_bp
 
 
 
 def create_app():
     app = Flask(__name__, template_folder="templates", static_folder="static")
+    app.config['SESSION_COOKIE_HTTPONLY'] = True
+    app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+    app.config['SESSION_COOKIE_SECURE'] = os.getenv('SESSION_COOKIE_SECURE', 'False').lower() == 'true'
     app.config.from_object(Config)
     app.config.setdefault("SQLALCHEMY_DATABASE_URI", "sqlite:///database.db")
     app.config.setdefault("SQLALCHEMY_TRACK_MODIFICATIONS", False)
-
+    CSRFProtect(app)
+    limiter.init_app(app)
+ 
     
     db.init_app(app)
 
